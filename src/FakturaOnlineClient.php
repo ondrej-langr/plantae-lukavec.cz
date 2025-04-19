@@ -117,6 +117,11 @@ class FakturaOnlineClient {
         }
 
         $this->token = str_replace('Bearer ', '', $authHeaderValue[0]);
+
+        if (!file_exists(dirname($this->tokenFilePath))) {
+            mkdir(dirname($this->tokenFilePath), 0777, true);
+        }
+
         file_put_contents($this->tokenFilePath, $this->token);
     }
 
