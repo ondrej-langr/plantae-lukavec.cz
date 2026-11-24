@@ -105,12 +105,11 @@ class WoocommerceInvoices extends Hook {
             $order->save_meta_data();
         });
 
-        // Add attachment invoice to order for either payment on delivery or payment before delivery
+        // Attach invoices only to the initial on-hold order email, not processing updates.
         add_filter( 'woocommerce_email_attachments', function ( $array, $id, $object, $that ){
-            $isProcessing = isset($id) && $id === 'customer_processing_order';
             $isCustomerOnHold = isset($id) && $id === 'customer_on_hold_order';
 
-            if (isset($id) && ($isProcessing || $isCustomerOnHold) && $object instanceof WC_Order) {
+            if (isset($id) && $isCustomerOnHold && $object instanceof WC_Order) {
                 $isLocalPayment = $object->get_payment_method() === 'alg_custom_gateway_1';
                 $order = $object;
 
