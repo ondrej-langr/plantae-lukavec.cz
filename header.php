@@ -78,7 +78,7 @@
               $src = rand_term_image();
             }
           ?>
-          <img src="<?php echo $src; ?>" alt="" class="b-lazy w-100 parallaxed_img">
+          <img src="<?php echo $src; ?>" alt="" class="b-lazy w-100 parallaxed_img absolute object-cover h-full">
         </div>
         <div class="pos-abs w-100 h-100 clearset">
 
@@ -88,12 +88,15 @@
           <?php if (is_product_category()): ?>
             <p>Kategorie: <?php echo single_cat_title( '', false ); ?></p>
           <?php endif; ?>
+          <?php $search_query = get_search_query(); if ( $search_query ): ?>
+            <p>Hledání: <em style="font-style: normal; opacity: .75;">&bdquo;<?php echo esc_html( $search_query ); ?>&ldquo;</em></p>
+          <?php endif; ?>
         </div>
       </<?php echo $ele_type; ?>>
     <?php else: ?>
       <<?php echo $ele_type; ?> id="hinfo" class="pos-rel">
         <div class="pos-abs w-100 h-100 background">
-          <img src="<?php echo get_theme_mod('header_image') ?>" loading="lazy" alt="" class="b-lazy w-100 parallaxed_img">
+          <img src="<?php echo get_theme_mod('header_image') ?>" loading="lazy" alt="" class="b-lazy w-100 parallaxed_img absolute object-cover h-full">
         </div>
         <div class="pos-abs w-100 h-100 clearset">
 

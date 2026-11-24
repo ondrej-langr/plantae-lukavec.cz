@@ -55,8 +55,12 @@
         </div>
       </div>
     </footer>
-    <div class="" style="height: 30px; width: 100%; display: flex; align-items:center; justify-content: center; background: white;">
-      <p>&copy; 2019-<?php echo date("Y"); ?> <a href="<?php echo home_url("/"); ?>">plantae-lukavec.cz</a></p>
+    <div class="flex w-full justify-center bg-white gap-4 mb-3.5 px-4 text-center">
+        <p class="!py-0"><a href="/vseobecne-obchodni-podminky-vop/" class="hover:underline">Všeobecné obchodní podmínky</a></p>
+        <p class="!py-0"><a href="/ochrana-osobnich-udaju/" class="hover:underline">Ochrana osobních údajů</a></p>
+    </div>
+    <div class="flex mb-8 w-full justify-center bg-white">
+        <p class="!py-0 !text-gray-500">&copy; 2019-<?php echo date("Y"); ?> <a href="<?php echo home_url("/"); ?>">plantae-lukavec.cz</a></p>
     </div>
     <!-- Wordpress footer Start-->
       <?php wp_footer(); ?>

@@ -49,8 +49,11 @@ class CustomizerHook extends Hook {
             }
         );
 
+
         $this->onCustomizerRegister(function (WP_Customize_Manager $wp_customize) {
-          $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+            if ($wp_customize->get_setting( 'blogname' )) {
+                $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+            }
           $wp_customize->add_control( new WP_Customize_Range( $wp_customize, 'translate_y_percentage', array(
           	'label'	=>  'Pozice Y na obrázcích v hlavičkách',
               'min' => 0,

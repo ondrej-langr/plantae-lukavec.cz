@@ -5,3 +5,20 @@
 @import './global.css';
 @import 'animate.css';
 @import 'aos/dist/aos.css';
+@import './wp-overrides.css';
+@import './products.css';
+@import './product-pages.css';
+
+.woocommerce-form__label-for-checkbox {
+    display: inline-flex;
+    input {
+        width: 20px !important;
+        min-width: 20px !important;
+        height: 20px;
+        margin: -2px 11px 0 0;
+    }
+}
+
+.woocommerce-terms-and-conditions-link {
+    text-decoration: underline;
+}

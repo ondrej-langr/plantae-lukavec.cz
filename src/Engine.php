@@ -20,8 +20,8 @@ class Engine {
             throw new Exception('Faktura online environment variables are not set');
         }
 
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+        // error_reporting(E_ALL);
+        // ini_set('display_errors', 1);
         add_action( 'after_setup_theme', fn() => add_theme_support( 'woocommerce' ));
         static::registerMenus();
         static::includeDeprecated();

@@ -53,8 +53,8 @@ function tarkan_adjust_shipping_rate($rates)
   if (WC()->session->get('chosen_payment_method') == 'cod') {
     foreach ($rates as $rate_id => $rate) {
       $cost = $rate->cost;
-      // Cost is now 140 and 'cod' (platba dobírkou) is 185 so we have to do 185 - 140
-      $additionalCost = 185 - $cost;
+      // Cost is now 167 and 'cod' (platba dobírkou) is 240 so we have to do 240 - 167
+      $additionalCost = 240 - $cost;
       $rates[$rate_id]->cost = $cost + $additionalCost;
     }
   }

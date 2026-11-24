@@ -107,7 +107,10 @@ class WoocommerceInvoices extends Hook {
 
         // Add attachment invoice to order for either payment on delivery or payment before delivery
         add_filter( 'woocommerce_email_attachments', function ( $array, $id, $object, $that ){
-            if (isset($id) && $id === 'customer_processing_order' && $object instanceof WC_Order) {
+            $isProcessing = isset($id) && $id === 'customer_processing_order';
+            $isCustomerOnHold = isset($id) && $id === 'customer_on_hold_order';
+
+            if (isset($id) && ($isProcessing || $isCustomerOnHold) && $object instanceof WC_Order) {
                 $isLocalPayment = $object->get_payment_method() === 'alg_custom_gateway_1';
                 $order = $object;
 

@@ -41,7 +41,13 @@ if ( ! empty( $order->get_billing_first_name() ) ) {
 	<p><?php esc_html_e( 'We’ve received your order and it’s currently on hold until we can confirm your payment has been processed.', 'woocommerce' ); ?></p>
 	<p><?php esc_html_e( 'Here’s a reminder of what you’ve ordered:', 'woocommerce' ); ?></p>
 <?php else : ?>
-	<p><?php esc_html_e( 'Thanks for your order. It’s on-hold until we confirm that payment has been received.', 'woocommerce' ); ?></p>
+	<p>Děkujeme za Vaši objednávku!
+	    <?php if ($order->get_payment_method() === 'bacs' ) : ?>
+			Pro započetí zpracování objednávky potřebujeme objednávku zaplatit na bankovní účet. Pro jednoduché zaplacení QR kódem využijte přiloženou fakturu. Pokud jste objednávku již zaplatili prosím sečkejte na potvrzení platby.
+        <?php else: ?>
+            Prosíme sečkejte na potvrzení objednávky.
+	    <?php endif; ?>
+	</p>
 <?php endif; ?>
 <?php echo $email_improvements_enabled ? '</div>' : ''; ?>
 
